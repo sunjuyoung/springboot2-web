@@ -38,6 +38,7 @@ public class HelloControllerTests {
         String name = "name";
         int amount = 10000;
 
+        //param 값은 String만 허용
         mvc.perform(get("/hello/dto").param("name", name).param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name",is(name)))
@@ -45,3 +46,6 @@ public class HelloControllerTests {
     }
 
 }
+//jsonPath
+//JSON 응답값을 필드별로 검증할 수 있는 메소드입니다.
+//$를 기준으로 필드명을 명시합니다.
